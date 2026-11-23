@@ -3,22 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Tarot</title>
+  <title>Three Card Spread</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <main class="welcome">
-    <h1>My Tarot</h1>
-    <p>オリジナルタロットアプリ</p>
-    <button class="shuffle-button" type="button">3枚のカードを引く</button>
-    <div class="loading" role="status" aria-live="polite" hidden>
-      <div class="loading-track" aria-hidden="true">
-        <div class="loading-bar"></div>
-      </div>
-      <p class="loading-message">NOW LOADING</p>
-    </div>
-    <section class="cards" aria-live="polite" aria-label="過去・現在・未来のカード"></section>
+    <h1>Three Card Spread</h1>
+    <section class="screen spread-screen">
+      <fieldset class="spread-options">
+        <legend>占い方を選んでください</legend>
+        <div class="spread-option-list">
+          <label class="spread-option">
+            <input type="radio" name="spread" value="pastPresentFuture">
+            <span class="spread-option-content">
+              <strong>1. 時系列で占う</strong>
+              <span>過去・現在・未来の流れや原因を見たいとき</span>
+            </span>
+          </label>
+          <label class="spread-option">
+            <input type="radio" name="spread" value="situationProblemAdvice">
+            <span class="spread-option-content">
+              <strong>2. 悩みを解決する</strong>
+              <span>悩みを整理して、行動のヒントを探す</span>
+            </span>
+          </label>
+          <label class="spread-option">
+            <input type="radio" name="spread" value="youOtherRelationship">
+            <span class="spread-option-content">
+              <strong>3. 恋愛・人間関係</strong>
+              <span>あなた・相手・関係性を見たいとき</span>
+            </span>
+          </label>
+          <label class="spread-option">
+            <input type="radio" name="spread" value="mindBodySoul">
+            <span class="spread-option-content">
+              <strong>4. 自分を見つめる</strong>
+              <span>心・体・魂のバランスを見たいとき</span>
+            </span>
+          </label>
+          <label class="spread-option">
+            <input type="radio" name="spread" value="morningNoonNight">
+            <span class="spread-option-content">
+              <strong>5. 1日の運勢</strong>
+              <span>朝・昼・夜の過ごし方を見たいとき</span>
+            </span>
+          </label>
+          <label class="spread-option">
+            <input type="radio" name="spread" value="choiceAChoiceBAdvice">
+            <span class="spread-option-content">
+              <strong>6. 選択肢を比較する</strong>
+              <span>A・Bを比べて、選ぶヒントを得る</span>
+            </span>
+          </label>
+          <label class="spread-option">
+            <input type="radio" name="spread" value="pastPresentOneMonth">
+            <span class="spread-option-content">
+              <strong>7. 未来を占う</strong>
+              <span>過去・現在から1ヶ月後の流れを見たいとき</span>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+      <button class="shuffle-button start-button" type="button" disabled>カードをシャッフルする</button>
+    </section>
+
+    <section class="screen deck-screen" hidden>
+      <h2>カードをシャッフルする</h2>
+      <p class="screen-instructions">カードをよく見て、シャッフルを始めましょう。</p>
+      <div class="deck-grid" aria-label="大アルカナ22枚"></div>
+      <p class="selection-count" aria-live="polite" hidden>選んだカード：0 / 3</p>
+      <button class="shuffle-button show-result-button" type="button" hidden>結果を表示する</button>
+      <button class="shuffle-button deck-action-button" type="button">シャッフルする</button>
+      <button class="secondary-button back-button" type="button">占い方を選び直す</button>
+    </section>
+
+    <section class="screen result-screen" hidden>
+      <h2 class="result-title"></h2>
+      <p class="screen-instructions">カードを順番に開いて、結果を見てみましょう。</p>
+      <section class="cards" aria-live="polite" aria-label="選んだ占い方の3枚のカード"></section>
+      <button class="secondary-button reset-button" type="button">最初に戻る</button>
+    </section>
   </main>
 </body>
 </html>
