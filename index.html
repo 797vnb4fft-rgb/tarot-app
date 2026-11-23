@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tarot</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="welcome">
+    <h1>My Tarot</h1>
+    <p>オリジナルタロットアプリ</p>
+    <button class="shuffle-button" type="button">3枚のカードを引く</button>
+    <div class="loading" role="status" aria-live="polite" hidden>
+      <div class="loading-track" aria-hidden="true">
+        <div class="loading-bar"></div>
+      </div>
+      <p class="loading-message">NOW LOADING</p>
+    </div>
+    <section class="cards" aria-live="polite" aria-label="過去・現在・未来のカード"></section>
+  </main>
+</body>
+</html>
